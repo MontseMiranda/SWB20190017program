@@ -1,0 +1,170 @@
+---
+title: "SCHWARZKOPF Group"
+author: "A COMPANY"
+date: 'Nov 12th - Nov 15th'
+output:
+ 
+  html_document:
+    css: FORMATO.css
+    highlight: textmate
+    theme: cosmo
+    toc: yes
+    toc_float: yes
+---
+
+<script> 
+    $(document).ready(function() { 
+    $head = $('#header'); 
+    $head.prepend('<A href = https://www.cuttingedge-events.com><img src ="LOGO.png" width="150" vspace="50" align="right"></A>') 
+    }); 
+</script> 
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
+```
+
+
+```{r libraries}
+library(readxl)
+library(dplyr)
+library(knitr)
+library(timevis)
+
+```
+
+## TIMELINE
+
+```{r timeline overview}
+
+timeline <- read_excel("timeline.xlsx", sheet = "Sheet1", 
+    col_types = c("date", 
+        "text", "text", "numeric", "text", 
+        "text"))
+
+data <- data.frame( id = 1:length(timeline$start),
+                    start = as.POSIXlt(timeline$start),
+                    content = timeline$content,
+                    group = timeline$group,
+                    type = "box",
+                    style = "background-color:#FF9933;")
+
+groups = data.frame(id = 1:4, content = c("Morning", "Lunch", "Afternoon", "Diner"))
+
+tl <- timevis(data, groups, showZoom = TRUE, zoomFactor = 0.2, fit = TRUE, width = '100%', height = 300)
+
+tl %>% setOptions(list(orientation = "top", align = "left"))
+
+```
+
+## SUGGESTED RESTAURANTS {.tabset .tabset-fade .tabset-pills}
+
+We will offer two different kind of restaurants for Thursday 12th and Saturday 14th. 
+On Thursday 12th we will suggest you restaurants with more relaxed atmoshpere but nice spots. As is the first night and the gourp has the Schwarzkopf event on Friday 13th. 
+
+On Saturday we will offer something more fashion where guests will feel the night atmosphere in Barcelona. As is the last dinner they maybe want to enjoy of a glass of wine or a gin after the dinner. 
+
+If you want to change a restaurant from Thursday to Saturday please, feel free to ask as it will be possible!
+
+### November 12th {.tabset .tabset-fade}
+
+For the welcome dinner on Thursday 12th we suggest you 4 different options to choose.
+
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=14OJIckzbRbtjhoQMLnEOO9-W8bObELxl" width="100%" height="480"></iframe>
+
+#### Tragaluz
+
+<iframe src="TRAGALUZ/Tragaluz.html" frameborder="0" width="100%" height="1050" scrolling="no"></iframe>
+
+#### Mamarosa
+
+<iframe src="MAMAROSA/Mamarosa.html" frameborder="0" width="100%" height="850" scrolling="no"></iframe>
+
+#### Mana75
+
+<iframe src="MANA75/Mana75.html" frameborder="0" width="100%" height="1100" scrolling="no"></iframe>
+
+#### Torre Alta Mar
+
+<iframe src="TORRE/Torre.html" frameborder="0" width="100%" height="10100" scrolling="no"></iframe>
+
+### November 14th {.tabset .tabset-fade} 
+
+For November 14th we also offer 4 different restaurants
+
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1CcqwZXRkRbYSa0tsEu1cnNyuFZWbNi3-" width="100%" height="480"></iframe>
+
+#### Shoko
+
+<iframe src="SHOKO/Shoko.html" frameborder="0" width="100%" height="1100" scrolling="no"></iframe>
+
+#### Nuba
+
+<iframe src="NUBA/Nuba.html" frameborder="0" width="100%" height="1100" scrolling="no"></iframe>
+
+#### El Principal
+
+<iframe src="PRINCIPAL/Principal.html" frameborder="0" width="100%" height="1100" scrolling="no"></iframe>
+
+#### Edition
+
+<iframe src="EDITION/Edition.html" frameborder="0" width="100%" height="900" scrolling="no"></iframe>
+
+*****
+
+## Budget
+
+<iframe src="https://swb20190017budget.netlify.com/"  frameborder="0" width="100%" height="1600" scrolling="no"></iframe>
+
+<br>
+
+## Terms & Conditions
+
+  * Rates valid for 2020.
+  
+  * Net rates for A Company
+  
+  * Cutting Edge Events management fee including in the detailed rates
+  
+  * VAT included. 
+  
+  * No reservation has been done. Availability upon request.
+
+## Amaze your clients!!
+
+<div class="client_offer">
+
+<p>Didn't you just love our presentation ? Our first goal here at _**Cutting Edge Events**_ is to help you **win** this business. You will most likely now collate the information contained in this website and make your own presentation
+to show your client<br>
+
+<p>Why not leverage our technology, and present your client with the same format ? As a **totally free service**, we offer you the possibility of doing the work for you</p>
+
+<p> We will: 
+  <ul>
+    * Follow your instructions to add anything you want to be in your presentation, and delete anything that you don't consider relevant
+    * Include your logo and company details, and remove all our company details
+    * We can even change some colors to mimic your corporate identity
+    * We will send you the new link, and it will look as if it was your work
+  </ul>
+</p>
+</div>
+
+<style>
+
+.client_offer{
+background-color: blue;
+color: white;
+padding: 10px;
+border: 1px solid black;
+margin-left: 25px;
+border-radius: 5px;
+font-style: italic;
+}
+</style>
+
+******************
+
+
+
+
